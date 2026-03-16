@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pdfplumber
+pandas
+groq
+langgraph
+langchain-core
+langchain-groq
+python-dotenv
+aiofiles
+httpx
