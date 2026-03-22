@@ -20,7 +20,7 @@ import pandas as pd
 import pdfplumber
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.responses import StreamingResponse, JSONResponse, Response
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from groq import Groq
@@ -1199,6 +1199,11 @@ INSTRUCTIONS:
 @app.get("/health")
 async def health():
     return {"status": "ok", "groq_configured": bool(GROQ_API_KEY)}
+
+
+@app.options("/health")
+async def health_options():
+    return Response(status_code=200)
 
 
 @app.get("/")
