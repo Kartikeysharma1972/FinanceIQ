@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { CheckCircle, Circle, Loader, XCircle, AlertCircle, FileSearch, Tag, BarChart2, Lightbulb, BookOpen, RefreshCw, Package } from 'lucide-react'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://financeiq-bny8.onrender.com'
 
 const NODES = [
   { id: 'extraction', label: 'Extraction', icon: FileSearch, desc: 'Parsing file & extracting transactions' },

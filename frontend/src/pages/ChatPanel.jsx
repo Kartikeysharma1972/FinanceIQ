@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Send, MessageCircle, X, Bot, User, Loader, Sparkles } from 'lucide-react'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://financeiq-bny8.onrender.com'
 
 const SUGGESTIONS = [
   'Sabse zyada kharcha kahan hua?',

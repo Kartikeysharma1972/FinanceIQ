@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { TrendingUp, Eye, EyeOff, AlertCircle, ArrowRight, User, Mail, Lock } from 'lucide-react'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://financeiq-bny8.onrender.com'
 
 export default function LoginPage({ onLogin }) {
   const [isSignup, setIsSignup] = useState(false)

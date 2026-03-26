@@ -2,7 +2,7 @@ import { useState, useCallback, useRef } from 'react'
 import { Upload, FileText, FileSpreadsheet, Shield, BarChart3, Lightbulb, Target, AlertCircle } from 'lucide-react'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://financeiq-bny8.onrender.com'
 
 const FEATURES = [
   { icon: BarChart3, title: 'Detailed Analysis', desc: 'Get a comprehensive breakdown of your income, expenses, and savings patterns.' },

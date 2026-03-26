@@ -6,12 +6,12 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      '/upload': 'http://localhost:8000',
-      '/stream': 'http://localhost:8000',
-      '/report': 'http://localhost:8000',
-      '/health': 'http://localhost:8000',
-      '/auth': 'http://localhost:8000',
-      '/chat': 'http://localhost:8000',
+      '/upload': 'https://financeiq-bny8.onrender.com',
+      '/stream': 'https://financeiq-bny8.onrender.com',
+      '/report': 'https://financeiq-bny8.onrender.com',
+      '/health': 'https://financeiq-bny8.onrender.com',
+      '/auth': 'https://financeiq-bny8.onrender.com',
+      '/chat': 'https://financeiq-bny8.onrender.com',
     }
   }
 })
