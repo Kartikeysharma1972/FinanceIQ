@@ -228,6 +228,11 @@ def extraction_node(state: FinanceState) -> FinanceState:
     try:
         if file_type == "csv":
             df = pd.read_csv(file_path)
+            # Limit to 500 transactions for memory efficiency
+            if len(df) > 500:
+                df = df.head(500)
+                _update_progress(session_id, "extraction", "warning", f"Large file detected. Processing first 500 transactions...")
+            
             # Normalize column names
             df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
             
@@ -908,6 +913,11 @@ async def upload_file(file: UploadFile = File(...)):
     if not file.filename:
         raise HTTPException(status_code=400, detail="No file provided")
     
+    # Check file size (max 5MB for free tier)
+    content = await file.read()
+    if len(content) > 5 * 1024 * 1024:  # 5MB limit
+        raise HTTPException(status_code=400, detail="File too large. Please upload a file smaller than 5MB.")
+    
     ext = Path(file.filename).suffix.lower()
     if ext not in [".pdf", ".csv"]:
         raise HTTPException(status_code=400, detail="Only PDF and CSV files are supported")
@@ -922,7 +932,6 @@ async def upload_file(file: UploadFile = File(...)):
     
     # Save file to temp
     with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as tmp:
-        content = await file.read()
         tmp.write(content)
         tmp_path = tmp.name
     
